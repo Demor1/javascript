@@ -1,0 +1,117 @@
+body {
+      display: flex;
+      flex-direction: column; 
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: 'Rubik', sans-serif;
+      background-color: #e0f7fa; 
+      padding: 20px;
+      box-sizing: border-box;
+      transition: background-color 0.3s;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      row-gap: 1.5em; 
+      width: 100%;
+      max-width: 400px;
+      margin: 0;
+      padding: 30px 40px;
+      border: none;
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    input, button {
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 1em;
+      font-family: inherit;
+      transition: all 0.2s ease-in-out;
+    }
+    
+    button {
+      background-color: #007bff;
+      color: white;
+      font-weight: 500;
+      cursor: pointer;
+      border-color: #007bff;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #007bff;
+      box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    }
+    
+    input.is-invalid {
+      border-color: #dc3545;
+      background-color: #fff2f2;
+    }
+    input.is-valid {
+        border-color: #28a745;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      margin-block: 0;
+      gap: 0.5em;
+      position: relative; 
+    }
+
+    .field__label {
+      font-weight: 500;
+      color: #333;
+    }
+
+    .field:has([required]) .field__label::after {
+      content: "*";
+      padding-inline-start: 0.25em;
+      color: #dc3545;
+    }
+
+    .field__hint {
+      font-size: 0.75em;
+      color: #555;
+      background-color: #f8f9fa;
+      padding: 5px 8px;
+      border-radius: 4px;
+      opacity: 0;
+      transform: translateY(-5px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      pointer-events: none; 
+    }
+
+    .field__hint.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .field__errors {
+      display: flex;
+      flex-direction: column;
+      row-gap: 0.4em;
+      font-size: 0.8em;
+      color: #dc3545;
+      line-height: 1.25;
+      min-height: 1.25em;
+    }
+    .field__errors:empty { display: none; }
+    
+    .success-message {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+      border-radius: 8px;
+      display: none; 
+    }

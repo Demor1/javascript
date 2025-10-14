@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="validation.css" />
+    <script src="event.js" defer></script>
+  </head>
+  <body>
+    <form
+      action="/registration"
+      id="regForm"
+      method="post"
+      novalidate
+      data-js-form
+    >
+      <p class="field">
+        <label for="login" class="field__label">Name</label>
+        <input
+          type="text"
+          class="field__control"
+          id="login"
+          name="login"
+          minlength="3"
+          maxlength="12"
+          aria-errormessage="login-errors"
+          required
+        />
+        <small class="field__hint">Name from 3-12 symbols</small>
+        <span
+          class="field__errors"
+          id="login-errors"
+          data-js-form-field-errors
+        ></span>
+      </p>
+      <p class="field">
+        <label for="password" class="field__label">Password</label>
+        <input
+          type="password"
+          class="field__control"
+          name="password"
+          id="password"
+          minlength="8"
+          maxlength="16"
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}"
+          title="Password must be 8-16 symbols, include as min 1 char in lowercase and 1 char in uppercase "
+          aria-errormessage="password-errors"
+          required
+        />
+        <small class="field__hint">8+ symbols, big and small letters</small>
+        <span
+          class="field__errors"
+          id="password-errors"
+          data-js-form-field-errors
+        ></span>
+      </p>
+      <p class="field">
+        <label for="email" class="field__label">Email</label>
+        <input
+          type="email"
+          class="field__control"
+          id="email"
+          name="email"
+          minlength="5"
+          maxlength="64"
+          pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}"
+          title="Enter valid email (for example, example@mail.com)."
+          aria-errormessage="email-errors"
+          required
+        />
+        <small class="field__hint">Enter your email</small>
+        <span
+          class="field__errors"
+          id="email-errors"
+          data-js-form-field-errors
+        ></span>
+      </p>
+      <button type="submit">Registration</button>
+    </form>
+
+    <div class="success-message" id="successMessage">
+      The form sent successfully!
+    </div>
+  </body>
+</html>
